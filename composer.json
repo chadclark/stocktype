@@ -1,0 +1,41 @@
+{
+    "name": "chadclark/craft-stocktype",
+    "description": "Custom fieldtype for M.F. Dulock order stock types.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "stocktype"
+    ],
+    "support": {
+        "docs": "https://github.com/chadclark/stocktype/blob/master/README.md",
+        "issues": "https://github.com/chadclark/stocktype/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chad Clark",
+            "homepage": "https://github.com/chadclark"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "chadclark\\stocktype\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Stocktype",
+        "handle": "stocktype",
+        "developer": "Chad Clark",
+        "developerUrl": "https://github.com/chadclark",
+        "documentationUrl": "https://github.com/chadclark/stocktype/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/chadclark/stocktype/master/CHANGELOG.md",
+        "class": "chadclark\\stocktype\\Stocktype"
+    }
+}

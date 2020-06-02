@@ -1,0 +1,79 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Stocktype plugin for Craft CMS 3.x
+ *
+ * Type Field Input
+ *
+ * @author    Chad Clark
+ * @copyright Copyright (c) 2020 Chad Clark
+ * @link      https://github.com/chadclark
+ * @package   Stocktype
+ * @since     1.0.0
+ */
+#}
+
+{% set options = {
+  pounds: {
+    id: 'stockType',
+    name: 'stockType',
+    value: 'pounds',
+    label: 'Pounds',
+    attrs: {
+      name: 'pounds',
+      abbrSingle: 'lb.',
+      abbrMultiple: 'lbs.',
+      priceLabel: 'per lb.',
+      qtyLabel: 'Amount',
+    }
+  },
+  itemCount: {
+    id: 'stockType',
+    name: 'stockType',
+    value: 'itemCount',
+    label: 'Each',
+    attrs: {
+      name: 'itemCount',
+      abbrSingle: null,
+      abbrMultiple: null,
+      priceLabel: 'each',
+      qtyLabel: 'Quantity',
+    }
+  },
+  inches: {
+    id: 'inches',
+    name: 'inches',
+    value: 'inches',
+    label: 'Inches',
+    attrs: {
+      name: 'inches',
+      abbrSingle: 'inch',
+      abbrMultiple: 'inches',
+      priceLabel: 'per inch',
+      qtyLabel: 'Size',
+    }
+  }
+} %}
+
+<div class="radio-group"
+  {%- if block('attr') is defined %} {{ block('attr') }}{% endif %}>
+  {%- for key, option in options %}
+    {%- if option is not iterable %}
+      {%- set option = {label: option, value: key} %}
+    {%- endif %}
+    <div>
+    <label
+      {%- if block('attr') is defined %} {{ block('attr') }}{% endif %}>
+        <input type="radio" value="{{ option.attrs|json_encode }}"
+          {%- if option.id ?? false %} id="{{ id }}"{% endif %}
+          {%- if option.class ?? false %} class="{{ class }}"{% endif %}
+          {%- if option.name ?? false %} name="{{ name }}"{% endif %}
+          {%- if (option.value is defined and option.value == value.name) %} checked{% endif %}
+          {%- if (option.autofocus ?? false) and not craft.app.request.isMobileBrowser(true) %} autofocus{% endif %}
+          {%- if option.disabled ?? false %} disabled{% endif %}
+        >
+        {% if option.label is defined %}{{ option.label|raw }}{% endif %}
+      </label>
+    </div>
+  {% endfor %}
+</div>

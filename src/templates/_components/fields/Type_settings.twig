@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Stocktype plugin for Craft CMS
+ *
+ * Type Field Settings
+ *
+ * @author    Chad Clark
+ * @copyright Copyright (c) 2020 Chad Clark
+ * @link      https://github.com/chadclark
+ * @package   Stocktype
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("chadclark\\stocktype\\assetbundles\\stocktype\\StocktypeAsset") %}
+
+{# {{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}} #}
