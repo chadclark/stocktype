@@ -2,7 +2,7 @@
     "name": "chadclark/craft-stocktype",
     "description": "Custom fieldtype for M.F. Dulock order stock types.",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
