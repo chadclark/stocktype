@@ -68,7 +68,7 @@
           {%- if option.id ?? false %} id="{{ id }}"{% endif %}
           {%- if option.class ?? false %} class="{{ class }}"{% endif %}
           {%- if option.name ?? false %} name="{{ name }}"{% endif %}
-          {%- if (option.value is defined and option.value == value.name) %} checked{% endif %}
+          {%- if (option.value is defined and value.name is defined and option.value == value.name) %} checked{% endif %}
           {%- if (option.autofocus ?? false) and not craft.app.request.isMobileBrowser(true) %} autofocus{% endif %}
           {%- if option.disabled ?? false %} disabled{% endif %}
         >
