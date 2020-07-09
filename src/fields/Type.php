@@ -17,7 +17,8 @@ use chadclark\stocktype\assetbundles\typefield\TypeFieldAsset;
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
-use craft\helpers\Db;
+use GraphQL\Type\Definition\Type;
+use chadclark\stocktype\gql\TypeFieldGenerator;
 use yii\db\Schema;
 use craft\helpers\Json;
 
@@ -71,6 +72,21 @@ class Type extends Field
     //return Schema::TYPE_MIXED;
     return Schema::TYPE_TEXT;
   }
+
+  /**
+     * @inheritdoc
+     * @since 3.3.0
+     */
+    public function getContentGqlType()
+    {
+        $typeArray = TypeFieldGenerator::generateTypes($this);
+
+        return [
+            'name' => $this->handle,
+            'description' => "Stocktype field",
+            'type' => array_shift($typeArray),
+        ];
+    }
 
   /**
    * @inheritdoc
