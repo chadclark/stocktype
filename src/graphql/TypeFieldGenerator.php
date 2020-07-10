@@ -9,7 +9,7 @@ use craft\gql\TypeLoader;
 use GraphQL\Type\Definition\Type;
 use chadclark\stocktype\fields\TypeField;
 
-class TypeFieldTypeGenerator implements GeneratorInterface
+class TypeFieldGenerator implements GeneratorInterface
 {
   /**
    * @inheritdoc
